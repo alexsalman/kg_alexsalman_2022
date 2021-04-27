@@ -1,3 +1,6 @@
+# Candidate for Kargo 2021 Summer Software Engineer Intern: Alex Salman
+# Graduate student at UCSC, email: aalsalma@ucsc.edu
+# 4/26/2021
 import sys
 string_list = []
 stack = []
@@ -27,7 +30,7 @@ def int_to_string(ls):
                 # remove a digit from the right
                 number = number // 10
             # store the first digit of the number in variable a
-            a = digit_to_word(i)
+            a = digit_to_word(number)
             # iterate through the stake to empty it's content and make a string
             while (len(stack)>0):
                 a += stack.pop()
