@@ -17,21 +17,31 @@ def digit_to_word(digit):
     return cases.get(digit)
 
 def int_to_string(ls):
-    for i in ls:
-        if i > 9:
-            while i > 9:
-                x = i % 10
+    for number in ls:
+        if number > 9:
+            while number > 9:
+                # get the first digit from the right
+                x = number % 10
+                # stack to store the words of digits per list number
                 stack.append(digit_to_word(x))
-                i = i // 10
+                # remove a digit from the right
+                number = number // 10
+            # store the first digit of the number in variable a
             a = digit_to_word(i)
+            # iterate through the stake to empty it's content and make a string
             while (len(stack)>0):
                 a += stack.pop()
             string_list.append(a)
         else:
-            string_list.append(digit_to_word(i))
+            # case of one digit number
+            string_list.append(digit_to_word(number))
+    # print format as requested in the question
     print(*string_list, sep = ", ")
 
 def main():
+    # to read args from terminal at the same line of running the algorithm
+    # ex: python main.py 3 25 209
+    # remove the first arg, main.py
     sys.argv.pop(0)
     ls = list(map(int,sys.argv))
     int_to_string(ls)
