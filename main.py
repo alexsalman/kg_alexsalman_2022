@@ -1,3 +1,4 @@
+import sys
 string_list = []
 stack = []
 def digit_to_word(digit):
@@ -20,20 +21,20 @@ def int_to_string(ls):
         if i > 9:
             while i > 9:
                 x = i % 10
-                print('x',x)
                 stack.append(digit_to_word(x))
                 i = i // 10
-                print('i',i)
             a = digit_to_word(i)
             while (len(stack)>0):
                 a += stack.pop()
             string_list.append(a)
         else:
             string_list.append(digit_to_word(i))
-    print(string_list)
+    print(*string_list, sep = ", ")
 
 def main():
-    int_to_string([3, 25, 209])
+    sys.argv.pop(0)
+    ls = list(map(int,sys.argv))
+    int_to_string(ls)
 #3 25 209
 #10 300 5
 if __name__ == "__main__":
